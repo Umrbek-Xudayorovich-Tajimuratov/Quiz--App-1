@@ -41,17 +41,16 @@ quiz_data = [
     },
 ];
 
+// todo: The more quiz data elements there are, the more 0 elements there will initially be in answer_arr
 answer_arr = [];
 for(i=0; i < quiz_data.length; i++){
     answer_arr.push(0);
 }
 
 let index = 0;
-
-
-
 quiz();
 
+// todo: If next is clicked, move on the next question. if finish is clicked, the answer is displayed
 next.addEventListener("click",()=>{
     if(quiz_data.length-1 != index){
         index++;
@@ -62,6 +61,7 @@ next.addEventListener("click",()=>{
     }    
 });
 
+// todo: If preview is clicked, return back the preview question 
 preview.addEventListener("click",()=>{
     if(index > 0){
         index--;
@@ -69,23 +69,20 @@ preview.addEventListener("click",()=>{
     } 
 });
 
-
-
-
+// todo: Write quizes to container to take from array [quiz_data]
 function quiz() { 
+    // Link to HTML
     const quizNumber = document.getElementById("quiz-number");
     const quizHeader = document.getElementById("quiz-header");
     const aText = document.getElementById("a_text");
     const bText = document.getElementById("b_text");
     const cText = document.getElementById("c_text");
     const dText = document.getElementById("d_text");
-
-    const preview = document.getElementById("preview");
     const next = document.getElementById("next");
     
     quizData = quiz_data[index];
 
-    console.log(quizData);
+    // Write to HTML
     quizNumber.innerHTML = index+1;
     quizHeader.innerHTML = quizData.question;
     aText.innerHTML = quizData.a;
@@ -93,26 +90,23 @@ function quiz() {
     cText.innerHTML = quizData.c;
     dText.innerHTML = quizData.d;
 
+    // if quiz ended appear FINIsh button
     if(index == quiz_data.length-1){
         next.innerHTML = "Finish";
-        // next.id = "finish";
     }
     else{
         next.innerHTML = "Next &gt;&gt;";
-        // next.id = "next";
     }
-
 }
 
-
-
+// todo: User choose Desired [input[type="radio"]] and it is changed(this means checked). This function give this information to function [check_answer] 
 document.querySelectorAll(".answer").forEach((element) =>{
     element.addEventListener("change",(event)=>{
         check_answer(event.target.value, index);
     });
 });
 
-
+// todo: If answer is correct, change relative [answer_arr] 's 0  to 1.such as [0,0,0,0,0] => [0,1,0,0,0], idex =index
 function check_answer(ans, idex){
     if(ans==quiz_data[idex].correct){
         answer_arr[idex] = 1;
@@ -122,11 +116,11 @@ function check_answer(ans, idex){
     }
 }
 
+// todo: write result of the quiz to [#quiz-container]
 function writeResult(){
     document.getElementById("quiz-container").innerHTML = `
     <div id="quiz-header" style="font-size: 3rem; text-align: center;">Test finished: <br> <span style ="margin: 3rem; color: #3C76FB;">${answer_arr.reduce((a,b) => a + b, 0)}/${answer_arr.length}</span></div>
     <div class="btns">
         <span class="button" onclick ="location.reload()" >&lt;&lt;  Retry </span>
-       
     </div>`;
 }
