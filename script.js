@@ -99,7 +99,8 @@ function quiz() {
     }
 }
 
-// todo: User choose Desired [input[type="radio"]] and it is changed(this means checked). This function give this information to function [check_answer] 
+// todo: User choose Desired [input[type="radio"]] and it is changed(this means checked). 
+// todo: This function give this information to function [check_answer] 
 document.querySelectorAll(".answer").forEach((element) =>{
     element.addEventListener("change",(event)=>{
         check_answer(event.target.value, index);
