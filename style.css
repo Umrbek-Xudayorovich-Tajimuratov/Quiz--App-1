@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(315deg, #b8c6db 0%, #f5f7fa 74%);
+    font-family: Roboto, serif;
+    margin: 0;
+    height: 100vh;
+    color: #797979;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-container{
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 25rem;
+    box-shadow: 2px 10px 20px rgba(97, 97, 97, 0.7);
+}
+
+#quiz-number{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 3px;
+    background-color: #5285fd;
+    color: #fff;
+    left: -1rem;
+    top: -0.75rem;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked +label{
+    color: #3C76FB;
+}
+
+#quiz-header{
+    padding: 2.4rem;
+    padding-bottom: 0;
+    font-weight: medium;
+    letter-spacing: 0.1rem;
+}
+
+ul{
+    list-style: none;
+}
+
+ul li{
+    width: 100%;
+    font-weight: 100;
+    letter-spacing: 0.07rem;
+    line-height: 1.75rem;
+}
+
+label:hover{
+    color: #000;
+    cursor: help;
+}
+
+.btns{
+    width: 100%;
+    display: flex;
+}
+.button{
+   flex: 1;
+   text-align: center;
+   padding: 15px;
+   background-color: #3C76FB;
+   color: #fff;
+   border-left: 1px solid;
+   border-right: 1px solid;
+   transition: all 0.3s ease-in-out;
+    letter-spacing: 0.15rem;
+}
+
+.button:hover{
+    background-color: #5285fd;
+    cursor: pointer;
+}
+.button:active{
+    transform: scale(0.98);
+}
