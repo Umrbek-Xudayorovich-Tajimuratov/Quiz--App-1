@@ -119,7 +119,12 @@ function check_answer(ans, idex){
 // todo: write result of the quiz to [#quiz-container]
 function writeResult(){
     document.getElementById("quiz-container").innerHTML = `
-    <div id="quiz-header" style="font-size: 3rem; text-align: center;">Test finished: <br> <span style ="margin: 3rem; color: #3C76FB;">${answer_arr.reduce((a,b) => a + b, 0)}/${answer_arr.length}</span></div>
+    <div id="quiz-header" style="font-size: 3rem; text-align: center;">
+    Test finished: <br> 
+        <span style ="margin: 3rem; color: #3C76FB;">
+        ${answer_arr.reduce((a,b) => a + b, 0)}/${answer_arr.length}
+        </span>
+    </div>
     <div class="btns">
         <span class="button" onclick ="location.reload()" >&lt;&lt;  Retry </span>
     </div>`;
